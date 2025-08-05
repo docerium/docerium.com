@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.0",
+    "mathjs": "^14.6.0",
     "next": "15.4.5",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "victory": "^37.3.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
