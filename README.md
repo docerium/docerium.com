@@ -1,2 +1,0 @@
-# tme
-Teaching Made Easy
