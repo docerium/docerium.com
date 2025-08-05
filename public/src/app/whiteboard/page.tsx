@@ -14,7 +14,13 @@ const Whiteboard = dynamic(
 export default function WhiteboardPage() {
   return (
     <div className="page custom-styles">
-      <Whiteboard />
+      <Whiteboard
+        initialData={{
+          appState: {
+            theme: "dark",
+          },
+        }}
+      />
     </div>
   );
 }
