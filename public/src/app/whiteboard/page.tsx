@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import "@excalidraw/excalidraw/index.css";
+import "@/styles/whiteboard.scss";
 
 const Whiteboard = dynamic(
   async () => (await import("@excalidraw/excalidraw")).Excalidraw,
@@ -12,7 +13,7 @@ const Whiteboard = dynamic(
 
 export default function WhiteboardPage() {
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
+    <div className="page custom-styles">
       <Whiteboard />
     </div>
   );
