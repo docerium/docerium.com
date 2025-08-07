@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-
 import {
   VictoryAxis,
   VictoryChart,
@@ -13,6 +12,33 @@ import * as Victory from "victory";
 import * as math from "mathjs";
 import "@/styles/graphs.scss";
 
+// --- Type Definitions ---
+// Describes the shape of a single function entry in the state.
+type FunctionState = {
+  id: number;
+  expression: string;
+  color: string;
+  error: string | null;
+};
+
+// Describes a single point on the graph.
+type Point = {
+  x: number;
+  y: number;
+};
+
+// Extends FunctionState to include the calculated data points for plotting.
+type PlotData = FunctionState & {
+  data: Point[];
+};
+
+// Describes the shape of the zoom domain object.
+type ZoomDomain = {
+  x: [number, number];
+  y: [number, number];
+};
+
+// --- Constants ---
 const PLOT_COLORS = [
   "#0077b6",
   "#d9534f",
@@ -23,19 +49,19 @@ const PLOT_COLORS = [
 ];
 const DATA_GENERATION_DOMAIN = { min: -100, max: 100 };
 const DATA_POINT_COUNT = 800;
-const INITIAL_DOMAIN = { x: [-10, 10], y: [-10, 10] };
+const INITIAL_DOMAIN: ZoomDomain = { x: [-10, 10], y: [-10, 10] };
 
 const VictoryZoomVoronoiContainer = Victory.createContainer("zoom", "voronoi");
 
-export default function FinalWorkingPlotter() {
-  const [functions, setFunctions] = useState([
+export default function FinalWorkingPlotter(): React.JSX.Element {
+  const [functions, setFunctions] = useState<FunctionState[]>([
     { id: 1, expression: "sin(x) * x", color: PLOT_COLORS[0], error: null },
     { id: 2, expression: "cos(x) * 5", color: PLOT_COLORS[1], error: null },
   ]);
 
-  const [zoomDomain, setZoomDomain] = useState(INITIAL_DOMAIN);
+  const [zoomDomain, setZoomDomain] = useState<ZoomDomain>(INITIAL_DOMAIN);
 
-  const addFunction = () =>
+  const addFunction = (): void =>
     setFunctions((prev) => [
       ...prev,
       {
@@ -45,35 +71,59 @@ export default function FinalWorkingPlotter() {
         error: null,
       },
     ]);
-  const removeFunction = (id) =>
+
+  const removeFunction = (id: number): void =>
     setFunctions((prev) => prev.filter((f) => f.id !== id));
-  const updateFunctionExpression = (id, newExpression) =>
+
+  const updateFunctionExpression = (id: number, newExpression: string): void =>
     setFunctions((prev) =>
       prev.map((f) => (f.id === id ? { ...f, expression: newExpression } : f))
     );
 
-  const plotData = useMemo(() => {
+  const plotData = useMemo<PlotData[]>(() => {
     return functions.map((func) => {
       if (!func.expression) return { ...func, data: [], error: null };
       try {
         const code = math.parse(func.expression).compile();
         const { min, max } = DATA_GENERATION_DOMAIN;
         const step = (max - min) / DATA_POINT_COUNT;
-        const points = [];
+        const points: Point[] = [];
         for (let x = min; x <= max; x += step) {
           const y = code.evaluate({ x });
           if (Number.isFinite(y)) points.push({ x, y });
         }
         return { ...func, data: points, error: null };
-      } catch (err) {
-        return { ...func, data: [], error: err.message };
+      } catch (err: unknown) {
+        // Best practice to type catch clause variables as 'unknown'
+        const errorMessage =
+          err instanceof Error ? err.message : "An unknown error occurred";
+        return { ...func, data: [], error: errorMessage };
       }
     });
   }, [functions]);
 
-  const handleZoom = useCallback((domain) => {
-    setZoomDomain(domain);
-  }, []);
+  const handleZoom = useCallback(
+    (domain: {
+      x: [number, number] | [Date, Date];
+      y: [number, number] | [Date, Date];
+    }) => {
+      // Only handle numeric domains
+      if (
+        Array.isArray(domain.x) &&
+        typeof domain.x[0] === "number" &&
+        typeof domain.x[1] === "number" &&
+        Array.isArray(domain.y) &&
+        typeof domain.y[0] === "number" &&
+        typeof domain.y[1] === "number"
+      ) {
+        setZoomDomain({
+          x: [domain.x[0], domain.x[1]],
+          y: [domain.y[0], domain.y[1]],
+        });
+      }
+    },
+    []
+  );
 
   return (
     <div
@@ -179,7 +229,6 @@ export default function FinalWorkingPlotter() {
               responsive={false}
               zoomDomain={zoomDomain}
               onZoomDomainChange={handleZoom}
-              // Voronoi (tooltip) props
               labels={({ datum }) =>
                 `(${datum.x.toFixed(2)}, ${datum.y.toFixed(2)})`
               }
