@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@excalidraw/element": "^0.18.0-f0063e113",
     "@excalidraw/excalidraw": "^0.18.0",
     "mathjs": "^14.6.0",
     "next": "15.4.5",
