@@ -11,6 +11,7 @@ import {
 } from "victory";
 import * as Victory from "victory";
 import * as math from "mathjs";
+import "@/styles/graphs.scss";
 
 const PLOT_COLORS = [
   "#0077b6",
@@ -128,14 +129,8 @@ export default function FinalWorkingPlotter() {
             />
             <button
               onClick={() => removeFunction(func.id)}
-              style={{
-                padding: "0.5rem 0.75rem",
-                border: "none",
-                background: "#d9534f",
-                color: "white",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
+              style={{}}
+              className="remove-button"
             >
               Remove
             </button>
@@ -216,13 +211,7 @@ export default function FinalWorkingPlotter() {
       <div style={{ textAlign: "center", marginTop: "1rem" }}>
         <button
           onClick={() => setZoomDomain(INITIAL_DOMAIN)}
-          style={{
-            padding: "0.5rem 1rem",
-            border: "1px solid #ccc",
-            background: "#010101",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className="reset-view-button"
         >
           Reset View
         </button>
