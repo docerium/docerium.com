@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useMemo, useCallback } from "react";
+import { useAtom } from "jotai";
 import {
   VictoryAxis,
   VictoryChart,
@@ -11,55 +12,35 @@ import {
 import * as Victory from "victory";
 import * as math from "mathjs";
 import "@/styles/graphs.scss";
+import {
+  functionsAtom,
+  zoomDomainAtom,
+  plotColorsAtom,
+  initialDomainAtom,
+  FunctionState,
+} from "@/store"; // Import atoms from the store
 
 // --- Type Definitions ---
-// Describes the shape of a single function entry in the state.
-type FunctionState = {
-  id: number;
-  expression: string;
-  color: string;
-  error: string | null;
-};
-
-// Describes a single point on the graph.
 type Point = {
   x: number;
   y: number;
 };
 
-// Extends FunctionState to include the calculated data points for plotting.
 type PlotData = FunctionState & {
   data: Point[];
 };
 
-// Describes the shape of the zoom domain object.
-type ZoomDomain = {
-  x: [number, number];
-  y: [number, number];
-};
-
 // --- Constants ---
-const PLOT_COLORS = [
-  "#0077b6",
-  "#d9534f",
-  "#5cb85c",
-  "#f0ad4e",
-  "#5bc0de",
-  "#337ab7",
-];
 const DATA_GENERATION_DOMAIN = { min: -100, max: 100 };
 const DATA_POINT_COUNT = 800;
-const INITIAL_DOMAIN: ZoomDomain = { x: [-10, 10], y: [-10, 10] };
 
 const VictoryZoomVoronoiContainer = Victory.createContainer("zoom", "voronoi");
 
 export default function FinalWorkingPlotter(): React.JSX.Element {
-  const [functions, setFunctions] = useState<FunctionState[]>([
-    { id: 1, expression: "sin(x) * x", color: PLOT_COLORS[0], error: null },
-    { id: 2, expression: "cos(x) * 5", color: PLOT_COLORS[1], error: null },
-  ]);
-
-  const [zoomDomain, setZoomDomain] = useState<ZoomDomain>(INITIAL_DOMAIN);
+  const [functions, setFunctions] = useAtom(functionsAtom);
+  const [zoomDomain, setZoomDomain] = useAtom(zoomDomainAtom);
+  const [PLOT_COLORS] = useAtom(plotColorsAtom);
+  const [INITIAL_DOMAIN] = useAtom(initialDomainAtom);
 
   const addFunction = (): void =>
     setFunctions((prev) => [
@@ -94,7 +75,6 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
         }
         return { ...func, data: points, error: null };
       } catch (err: unknown) {
-        // Best practice to type catch clause variables as 'unknown'
         const errorMessage =
           err instanceof Error ? err.message : "An unknown error occurred";
         return { ...func, data: [], error: errorMessage };
@@ -107,7 +87,6 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
       x: [number, number] | [Date, Date];
       y: [number, number] | [Date, Date];
     }) => {
-      // Only handle numeric domains
       if (
         Array.isArray(domain.x) &&
         typeof domain.x[0] === "number" &&
@@ -122,7 +101,7 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
         });
       }
     },
-    []
+    [setZoomDomain]
   );
 
   return (
@@ -179,7 +158,6 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
             />
             <button
               onClick={() => removeFunction(func.id)}
-              style={{}}
               className="remove-button"
             >
               Remove
