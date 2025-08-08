@@ -1,11 +1,14 @@
 import "@/styles/sidebar.scss";
+import { ProjectIcon } from "@primer/octicons-react";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <h2>Sidebar</h2>
-      <p>This is the sidebar content.</p>
-      {/* Add more sidebar content here */}
+      <div className="sidebar-icons">
+        <a href="/whiteboard" className="sidebar-icon">
+          <ProjectIcon size={56} />
+        </a>
+      </div>
     </div>
   );
 }
