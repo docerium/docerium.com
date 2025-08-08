@@ -46,7 +46,7 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
     setFunctions((prev) => [
       ...prev,
       {
-        id: prev.length + 1,
+        id: prev.length > 0 ? Math.max(...prev.map((f) => f.id)) + 1 : 1,
         expression: "",
         color: PLOT_COLORS[prev.length % PLOT_COLORS.length],
         error: null,
@@ -54,7 +54,11 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
     ]);
 
   const removeFunction = (id: number): void =>
-    setFunctions((prev) => prev.filter((f) => f.id !== id));
+    setFunctions((prev) =>
+      prev
+        .filter((f) => f.id !== id)
+        .map((f, index) => ({ ...f, id: index + 1 }))
+    );
 
   const updateFunctionExpression = (id: number, newExpression: string): void =>
     setFunctions((prev) =>
