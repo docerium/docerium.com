@@ -46,7 +46,7 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
     setFunctions((prev) => [
       ...prev,
       {
-        id: Date.now(),
+        id: prev.length + 1,
         expression: "",
         color: PLOT_COLORS[prev.length % PLOT_COLORS.length],
         error: null,
