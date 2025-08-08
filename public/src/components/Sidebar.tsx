@@ -1,7 +1,10 @@
 import "@/styles/sidebar.scss";
-import { ProjectIcon } from "@primer/octicons-react";
-import { GraphIcon } from "@primer/octicons-react";
-import { MarkGithubIcon } from "@primer/octicons-react";
+import {
+  ProjectIcon,
+  GraphIcon,
+  NoteIcon,
+  MarkGithubIcon,
+} from "@primer/octicons-react";
 
 export default function Sidebar() {
   return (
@@ -12,6 +15,9 @@ export default function Sidebar() {
         </a>
         <a href="/graphs" className="sidebar-icon">
           <GraphIcon size={42} />
+        </a>
+        <a href="/notebook" className="sidebar-icon">
+          <NoteIcon size={42} />
         </a>
       </div>
       <a href="https://github.com/andrinoff/tme" className="github-link">

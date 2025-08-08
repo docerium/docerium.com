@@ -36,6 +36,12 @@ const INITIAL_WHITEBOARD_DATA: WhiteboardData = {
   appState: { theme: "dark", isLoading: false },
 };
 
+const INITIAL_NOTEBOOK_CONTENT =
+  "# Notebook\n\nThis is a notebook for your notes and equations.\n\n" +
+  "You can write **LaTeX** equations like this:\n" +
+  "$$\\int_0^\\infty e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}$$\n\n" +
+  "And inline equations like \\( E = mc^2 \\).";
+
 export const functionsAtom = atomWithStorage<FunctionState[]>("functions", [
   { id: 1, expression: "sin(x) * x", color: PLOT_COLORS[0], error: null },
   { id: 2, expression: "cos(x) * 5", color: PLOT_COLORS[1], error: null },
@@ -52,4 +58,9 @@ export const initialDomainAtom = atom(() => INITIAL_DOMAIN);
 export const whiteboardAtom = atomWithStorage<WhiteboardData>(
   "whiteboardData",
   INITIAL_WHITEBOARD_DATA
+);
+
+export const notebookAtom = atomWithStorage<string>(
+  "notebookContent",
+  INITIAL_NOTEBOOK_CONTENT
 );

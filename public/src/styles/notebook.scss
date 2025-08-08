@@ -1,0 +1,38 @@
+.notebook-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.editor-pane,
+.preview-pane {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.editor-textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  resize: none;
+}
+
+.preview-pane {
+  border-left: 1px solid #ccc;
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+  .katex-error {
+    color: red;
+  }
+}
