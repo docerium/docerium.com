@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.scss";
 import "../styles/app.scss";
-import Sidebar from "@/components/Sidebar";
+import DockElement from "@/components/DockElement";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +39,7 @@ export default function RootLayout({
       >
         <div className="layout">
           {children}
-          <Sidebar />
+          <DockElement />
         </div>
       </body>
     </html>
