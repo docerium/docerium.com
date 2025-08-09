@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.scss";
 import "../styles/app.scss";
 import DockElement from "@/components/DockElement";
+import { MarkGithubIcon } from "@primer/octicons-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,20 @@ export default function RootLayout({
           {children}
           <DockElement />
         </div>
+        <footer className="mt-12 text-center text-gray-500">
+          <p>
+            TME is open-source! Check out the project on{" "}
+            <a
+              href="https://github.com/andrinoff/tme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              <MarkGithubIcon size={16} className="inline-block" /> GitHub
+            </a>
+            .
+          </p>
+        </footer>
       </body>
     </html>
   );
