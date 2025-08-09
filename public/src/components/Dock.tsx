@@ -92,9 +92,12 @@ function DockItem({
       role="button"
       aria-haspopup="true"
     >
-      {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { isHovered })
-      )}
+      {Children.map(children, (child) => {
+        if (React.isValidElement<{ isHovered?: MotionValue<number> }>(child)) {
+          return cloneElement(child, { isHovered });
+        }
+        return child;
+      })}
     </motion.div>
   );
 }
