@@ -77,7 +77,7 @@ export default function NotebookPage() {
   const renderedContent = useMemo(() => parseContent(content), [content]);
 
   return (
-    <div className="notebook-container">
+    <div className="notebook-container page">
       <div className="editor-pane">
         <textarea
           value={content}
