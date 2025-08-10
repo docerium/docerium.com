@@ -8,7 +8,6 @@ export type { ExcalidrawElement, AppState };
 export type FunctionState = {
   id: number;
   expression: string;
-  color: string;
   error: string | null;
 };
 
@@ -43,8 +42,8 @@ const INITIAL_NOTEBOOK_CONTENT =
   "And inline equations like \\( E = mc^2 \\).";
 
 export const functionsAtom = atomWithStorage<FunctionState[]>("functions", [
-  { id: 1, expression: "sin(x) * x", color: PLOT_COLORS[0], error: null },
-  { id: 2, expression: "cos(x) * 5", color: PLOT_COLORS[1], error: null },
+  { id: 1, expression: "sin(x) * x", error: null },
+  { id: 2, expression: "cos(x) * 5", error: null },
 ]);
 
 export const zoomDomainAtom = atomWithStorage<ZoomDomain>(

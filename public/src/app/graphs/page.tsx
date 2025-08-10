@@ -48,7 +48,6 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
       {
         id: prev.length > 0 ? Math.max(...prev.map((f) => f.id)) + 1 : 1,
         expression: "",
-        color: PLOT_COLORS[prev.length % PLOT_COLORS.length],
         error: null,
       },
     ]);
@@ -137,7 +136,7 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
           >
             <span
               style={{
-                color: func.color,
+                color: PLOT_COLORS[func.id - 1],
                 fontWeight: "bold",
                 fontSize: "1.2rem",
               }}
@@ -233,7 +232,9 @@ export default function FinalWorkingPlotter(): React.JSX.Element {
                 <VictoryLine
                   key={plot.id}
                   data={plot.data}
-                  style={{ data: { stroke: plot.color, strokeWidth: 2 } }}
+                  style={{
+                    data: { stroke: PLOT_COLORS[plot.id - 1], strokeWidth: 2 },
+                  }}
                 />
               )
           )}
