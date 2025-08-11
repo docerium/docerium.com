@@ -1,6 +1,8 @@
 # Teaching Made Easy (TME)
 
 <p align="center">
+    
+  ![CI](https://github.com/andrinoff/tme/actions/workflows/ci.yml/badge.svg)
   <a href="https://github.com/andrinoff/tme/stargazers"><img src="https://img.shields.io/github/stars/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
   <a href="https://github.com/andrinoff/tme/network/members"><img src="https://img.shields.io/github/forks/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
   <a href="https://github.com/andrinoff/tme/issues"><img src="https://img.shields.io/github/issues/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
@@ -8,10 +10,11 @@
 </p>
 
 <p align="center">
-  [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-  [![CI](https://github.com/andrinoff/tme/actions/workflows/ci.yml/badge.svg)](https://github.com/andrinoff/tme/actions/workflows/ci.yml)
-  <img src="https://img.shields.io/github/repo-size/andrinoff/tme" />
-  <img src="https://img.shields.io/github/last-commit/andrinoff/tme" />
+
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white)](https://choosealicense.com/licenses/mit/)
+<img src="https://img.shields.io/github/repo-size/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
+<img src="https://img.shields.io/github/last-commit/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
+
 </p>
 
 Welcome to **Teaching Made Easy (TME)**, an all-in-one web application designed to be the ultimate tool for teaching and learning. TME integrates a powerful suite of tools including an interactive whiteboard, a dynamic graphing calculator, and a real-time markdown notebook, making it easier than ever to visualize concepts, solve problems, and take notes.
