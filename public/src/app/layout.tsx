@@ -4,6 +4,7 @@ import "../styles/globals.scss";
 import "../styles/app.scss";
 import DockElement from "@/components/DockElement";
 import { MarkGithubIcon } from "@primer/octicons-react";
+import "../styles/tailwind.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
