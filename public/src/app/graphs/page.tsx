@@ -66,17 +66,36 @@ export default function DesmosGraphPage(): React.JSX.Element {
   useEffect(() => {
     if (graphRef.current) {
       const allExpressions = functions.map((func, index) => {
-        const expr = func.expression.trim();
-        let latexExpression = expr;
+        let expr = func.expression.trim();
+
+        // A mapping of common functions to their LaTeX commands
+        const latexFunctions: { [key: string]: string } = {
+          sin: "\\sin",
+          cos: "\\cos",
+          tan: "\\tan",
+          csc: "\\csc",
+          sec: "\\sec",
+          cot: "\\cot",
+          log: "\\log",
+          ln: "\\ln",
+          sqrt: "\\sqrt",
+        };
+
+        for (const funcName in latexFunctions) {
+          const regex = new RegExp(`(?<!\\\\)\\b${funcName}\\b`, "g");
+          expr = expr.replace(regex, latexFunctions[funcName]);
+        }
+
         if (
           !expr.includes("=") &&
           !(expr.startsWith("(") && expr.endsWith(")"))
         ) {
-          latexExpression = `y=${expr}`;
+          expr = `y=${expr}`;
         }
+
         return {
           id: `func-${func.id}`,
-          latex: latexExpression,
+          latex: expr,
           color: PLOT_COLORS[index % PLOT_COLORS.length],
         };
       });
