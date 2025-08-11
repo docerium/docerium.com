@@ -42,8 +42,8 @@ const INITIAL_NOTEBOOK_CONTENT =
   "And inline equations like \\( E = mc^2 \\).";
 
 export const functionsAtom = atomWithStorage<FunctionState[]>("functions", [
-  { id: 1, expression: "sin(x) * x", error: null },
-  { id: 2, expression: "cos(x) * 5", error: null },
+  { id: 1, expression: "y=sin(x) * x", error: null },
+  { id: 2, expression: "y=cos(x) * 5", error: null },
 ]);
 
 export const zoomDomainAtom = atomWithStorage<ZoomDomain>(
