@@ -1,4 +1,12 @@
-# Teaching Made Easy (TME)
+# Teaching Made Easy
+
+<div align="center">
+
+<img src = "public/src/app/favicon.ico" height=200 width=200>
+
+</div>
+
+---
 
 <p align="center">
     
