@@ -38,13 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="layout">
-          {children}
-          <DockElement />
-        </div>
-        <footer className="mt-12 text-center text-gray-500">
+        <div className="text-center text-gray-500 header">
           <p>
-            TME is open-source! Check out the project on{" "}
+            Teaching Made Easy is open-source! Star the project on{" "}
             <a
               href="https://github.com/andrinoff/tme"
               target="_blank"
@@ -55,7 +51,11 @@ export default function RootLayout({
             </a>
             .
           </p>
-        </footer>
+        </div>
+        <div className="layout">
+          {children}
+          <DockElement />
+        </div>
       </body>
     </html>
   );

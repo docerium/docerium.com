@@ -22,3 +22,14 @@ body {
   flex-direction: row;
   min-height: 100vh;
 }
+
+.header {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #888;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  z-index: 100000;
+}

@@ -75,7 +75,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
   }, [functions, PLOT_COLORS]);
 
   return (
-    <>
+    <div className="page">
       <Script
         src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"
         strategy="afterInteractive"
@@ -154,6 +154,6 @@ export default function DesmosGraphPage(): React.JSX.Element {
 
         <div ref={calculatorRef} className="desmos-calculator"></div>
       </div>
-    </>
+    </div>
   );
 }
