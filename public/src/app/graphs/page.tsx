@@ -122,7 +122,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
                   fontSize: "1.2rem",
                 }}
               >
-                ƒ({func.id})=
+                ƒ<sub>{func.id}</sub>(x)=
               </span>
               <input
                 type="text"
