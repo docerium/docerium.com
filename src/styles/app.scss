@@ -11,4 +11,30 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-bottom: 8px;
+}
+
+/* Star animations */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.star {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
