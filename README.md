@@ -1,3 +1,8 @@
+> [!WARNING]
+> The project has been moved to [@docerium](https://github.com/docerium) and the website will be turned off at tme.andrinoff.com on 01.09.25 and permanently at [docerium.com](https://docerium.com)
+
+
+
 # Teaching Made Easy
 
 <div align="center">
