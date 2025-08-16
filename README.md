@@ -1,9 +1,4 @@
-> [!WARNING]
-> The project has been moved to [@docerium](https://github.com/docerium) and the website will be turned off at tme.andrinoff.com on 01.09.25 and permanently at [docerium.com](https://docerium.com)
-
-
-
-# Teaching Made Easy
+# Docerium
 
 <div align="center">
 
@@ -15,22 +10,22 @@
 
 <p align="center">
     
-  ![CI](https://github.com/andrinoff/tme/actions/workflows/ci.yml/badge.svg)
-  <a href="https://github.com/andrinoff/tme/stargazers"><img src="https://img.shields.io/github/stars/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/andrinoff/tme/network/members"><img src="https://img.shields.io/github/forks/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/andrinoff/tme/issues"><img src="https://img.shields.io/github/issues/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/andrinoff/tme/graphs/contributors"><img src="https://img.shields.io/github/contributors/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+  ![CI](https://github.com/docerium/docerium.com/actions/workflows/ci.yml/badge.svg)
+  <a href="https://github.com/docerium/docerium.com/stargazers"><img src="https://img.shields.io/github/stars/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+  <a href="https://github.com/docerium/docerium.com/network/members"><img src="https://img.shields.io/github/forks/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+  <a href="https://github.com/docerium/docerium.com/issues"><img src="https://img.shields.io/github/issues/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+  <a href="https://github.com/docerium/docerium.com/graphs/contributors"><img src="https://img.shields.io/github/contributors/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
 </p>
 
 <p align="center">
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white)](https://choosealicense.com/licenses/mit/)
-<img src="https://img.shields.io/github/repo-size/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
-<img src="https://img.shields.io/github/last-commit/andrinoff/tme?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
+<img src="https://img.shields.io/github/repo-size/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
+<img src="https://img.shields.io/github/last-commit/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
 
 </p>
 
-Welcome to **Teaching Made Easy (TME)**, an all-in-one web application designed to be the ultimate tool for teaching and learning. TME integrates a powerful suite of tools including an interactive whiteboard, a dynamic graphing calculator, and a real-time markdown notebook, making it easier than ever to visualize concepts, solve problems, and take notes.
+Welcome to **Docerium**, an all-in-one web application designed to be the ultimate tool for teaching and learning. Docerium integrates a powerful suite of tools including an interactive whiteboard, a dynamic graphing calculator, and a real-time markdown notebook, making it easier than ever to visualize concepts, solve problems, and take notes.
 
 ---
 
@@ -81,8 +76,8 @@ Make sure you have Node.js (version 20.0 or higher) and npm installed on your ma
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/andrinoff/tme.git
-    cd tme/public
+    git clone https://github.com/docerium/docerium.com.git
+    cd docerium.com/public
     ```
 
 2.  **Install NPM packages:**
