@@ -2,28 +2,29 @@
 
 <div align="center">
 
-<img src = "public/src/app/favicon.ico" height=200 width=200>
+<img src = "src/app/favicon.ico" height=200 width=200>
 
 </div>
 
 ---
 
-<p align="center">
-    
-  ![CI](https://github.com/docerium/docerium.com/actions/workflows/ci.yml/badge.svg)
-  <a href="https://github.com/docerium/docerium.com/stargazers"><img src="https://img.shields.io/github/stars/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/docerium/docerium.com/network/members"><img src="https://img.shields.io/github/forks/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/docerium/docerium.com/issues"><img src="https://img.shields.io/github/issues/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-  <a href="https://github.com/docerium/docerium.com/graphs/contributors"><img src="https://img.shields.io/github/contributors/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
-</p>
+<div align="center">
 
-<p align="center">
+![CI](https://github.com/docerium/docerium.com/actions/workflows/ci.yml/badge.svg)
+<a href="https://github.com/docerium/docerium.com/stargazers"><img src="https://img.shields.io/github/stars/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+<a href="https://github.com/docerium/docerium.com/network/members"><img src="https://img.shields.io/github/forks/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+<a href="https://github.com/docerium/docerium.com/issues"><img src="https://img.shields.io/github/issues/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+<a href="https://github.com/docerium/docerium.com/graphs/contributors"><img src="https://img.shields.io/github/contributors/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" /></a>
+
+</div>
+
+<div align="center">
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white)](https://choosealicense.com/licenses/mit/)
 <img src="https://img.shields.io/github/repo-size/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
 <img src="https://img.shields.io/github/last-commit/docerium/docerium.com?style=for-the-badge&logo=github&color=C9CBFF&logoColor=white" />
 
-</p>
+</div>
 
 Welcome to **Docerium**, an all-in-one web application designed to be the ultimate tool for teaching and learning. Docerium integrates a powerful suite of tools including an interactive whiteboard, a dynamic graphing calculator, and a real-time markdown notebook, making it easier than ever to visualize concepts, solve problems, and take notes.
 

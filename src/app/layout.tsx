@@ -3,7 +3,7 @@ import "../styles/globals.scss";
 import "../styles/app.scss";
 import "../styles/tailwind.css";
 import DockElement from "../components/DockElement";
-import Header from "../components/Header";
+import GitHubStars from "../components/GitHubStars";
 
 export const metadata: Metadata = {
   title: {
@@ -99,9 +99,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` bg-gray-900`}>
-        <Header />
         <main className="pt-4">{children}</main>
         <DockElement />
+        <GitHubStars />
       </body>
     </html>
   );
