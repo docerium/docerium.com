@@ -110,8 +110,7 @@ Navigate between the three main tools using the icons in the dock:
 ## 📂 Project Structure
 
 ```
-public/
-└── src/
+src/
     ├── app/                  # Next.js App Router pages
     │   ├── graphs/
     │   ├── notebook/

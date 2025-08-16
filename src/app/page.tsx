@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ProjectIcon, GraphIcon, FileIcon } from "@primer/octicons-react";
 import PixelCard from "@/components/PixelCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Welcome to Docerium - the all-in-one educational platform for interactive teaching and learning.",
+};
 
 export default function Home() {
   return (

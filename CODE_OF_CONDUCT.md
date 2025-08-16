@@ -36,14 +36,9 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement. The team can be reached via our social media channels:
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement. The team can be reached via our email:
 
-- **Instagram**: [@andrinoffdev](https://instagram.com/andrinoffdev)
-- **X (formerly Twitter)**: [@AndrinoffDev](https://x.com/andrinoffdev)
-- **GitHub**: [@andrinoff](https://github.com/andrinoff)
-- **Telegram**: [@andrinoff](https://t.me/andrinoff)
-- **Facebook**: [@andrinoff](https://www.facebook.com/andrinoff/)
-- **Mastodon**: [@andrinoff@fosstodon.org](https://fosstodon.org/@andrinoff)
+**[report@docerium.com](mailto:report@docerium.com)**
 
 All complaints will be reviewed and investigated promptly and fairly.
 

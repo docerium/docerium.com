@@ -1,6 +1,6 @@
-# Contributing to Teaching Made Easy
+# Contributing to Docerium
 
-First off, thank you for considering contributing to TME! It's people like you that make TME such a great tool.
+First off, thank you for considering contributing to Docerium! It's people like you that make Docerium such a great tool.
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
@@ -15,8 +15,8 @@ Following these guidelines helps to communicate that you respect the time of the
 1.  **Fork** the repository to your own GitHub account.
 2.  **Clone** your fork to your local machine:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/tme.git
-    cd tme/public
+    git clone https://github.com/YOUR_USERNAME/docerium.git
+    cd docerium/public
     ```
 
 ### Setup

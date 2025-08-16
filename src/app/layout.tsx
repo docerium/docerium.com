@@ -6,8 +6,89 @@ import DockElement from "../components/DockElement";
 import Header from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "Teaching Made Easy",
-  description: "The all-in-one tool for teaching and learning.",
+  title: {
+    default: "Docerium",
+    template: "%s | Docerium",
+  },
+  description:
+    "Docerium is the all-in-one educational platform combining interactive whiteboards, notebook functionality, and visual graphs for enhanced teaching and learning experiences.",
+  keywords: [
+    "education",
+    "teaching",
+    "learning",
+    "whiteboard",
+    "notebook",
+    "graphs",
+    "interactive",
+    "educational technology",
+    "e-learning",
+    "classroom tools",
+    "digital education",
+    "teaching platform",
+    "docerium",
+  ],
+  authors: [{ name: "Docerium Team" }],
+  creator: "Docerium",
+  publisher: "Docerium",
+  applicationName: "Docerium",
+  category: "Education",
+  classification: "Educational Technology",
+  metadataBase: new URL("https://docerium.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://docerium.com",
+    siteName: "Docerium",
+    title: "Docerium - Teaching Made Easy",
+    description:
+      "The all-in-one educational platform combining interactive whiteboards, notebook functionality, and visual graphs for enhanced teaching and learning experiences.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Docerium - Teaching Made Easy",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@docerium",
+    creator: "@docerium",
+    title: "Docerium - Teaching Made Easy",
+    description:
+      "The all-in-one educational platform combining interactive whiteboards, notebook functionality, and visual graphs for enhanced teaching and learning experiences.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "Docerium",
+    "mobile-web-app-capable": "yes",
+    "msapplication-TileColor": "#1f2937",
+    "theme-color": "#1f2937",
+  },
 };
 
 export default function RootLayout({
