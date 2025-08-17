@@ -22,5 +22,16 @@ const items = [
 ];
 
 export default function DockElement() {
-  return <Dock items={items} panelHeight={68} baseItemSize={50} />;
+  return (
+    <>
+      {/* Mobile dock - smaller and simpler */}
+      <div className="block sm:hidden">
+        <Dock items={items} panelHeight={56} baseItemSize={40} />
+      </div>
+      {/* Desktop dock - original size */}
+      <div className="hidden sm:block">
+        <Dock items={items} panelHeight={68} baseItemSize={50} />
+      </div>
+    </>
+  );
 }

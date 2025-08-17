@@ -16,6 +16,14 @@ body {
   font-family: "Mozilla Text", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+
+  // Mobile improvements
+  @media (max-width: 768px) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
 }
 .layout {
   display: flex;
@@ -38,4 +46,11 @@ body {
   height: 4vh;
   padding: 1rem;
   z-index: 100000;
+
+  // Mobile adjustments
+  @media (max-width: 768px) {
+    height: 3vh;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
 }
