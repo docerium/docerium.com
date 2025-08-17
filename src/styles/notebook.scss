@@ -110,3 +110,21 @@
     font-size: 0.8rem;
   }
 }
+
+/* Presentation / streaming mode: preview-only */
+.notebook--preview-only {
+  .editor-pane {
+    display: none !important;
+  }
+
+  .preview-pane {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-left: none !important;
+  }
+}
+
+/* Hide the global dock while presenting */
+.notebook--preview-only .dock-container {
+  display: none !important;
+}
