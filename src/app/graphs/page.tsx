@@ -127,6 +127,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
           {functions.map((func, index) => (
             <div
               key={func.id}
+              className="function-input-container"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -139,6 +140,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
                   color: PLOT_COLORS[index % PLOT_COLORS.length],
                   fontWeight: "bold",
                   fontSize: "1.2rem",
+                  minWidth: "fit-content",
                 }}
               >
                 ƒ<sub>{func.id}</sub>(x)=
@@ -155,6 +157,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
                   fontSize: "1rem",
                   border: `1px solid #ccc`,
                   borderRadius: "4px",
+                  minWidth: "120px",
                 }}
               />
               <button
@@ -175,6 +178,7 @@ export default function DesmosGraphPage(): React.JSX.Element {
               color: "white",
               borderRadius: "4px",
               cursor: "pointer",
+              fontSize: "0.9rem",
             }}
           >
             + Add Function

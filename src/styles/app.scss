@@ -2,6 +2,13 @@
   margin-top: 1vh;
   height: 96vh;
   width: 100vw;
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+
+  // For notebook and other full-height pages
+  &.notebook-container {
+    margin-top: 0;
+    height: 100vh;
+  }
 }
 
 .dock-container {
@@ -12,6 +19,11 @@
   display: flex;
   justify-content: center;
   padding-bottom: 8px;
+
+  /* Ensure dock doesn't interfere with mobile scrolling */
+  @media (max-width: 640px) {
+    padding-bottom: 4px;
+  }
 }
 
 /* Star animations */

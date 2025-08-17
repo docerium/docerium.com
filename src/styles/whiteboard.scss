@@ -3,6 +3,21 @@
   --color-primary-darker: #d64c7e;
   --color-primary-darkest: #e86e99;
   --color-primary-light: #dcbec9;
+
+  // Mobile optimizations
+  @media (max-width: 768px) {
+    // Ensure touch events work properly
+    touch-action: none;
+
+    // Make sure toolbar is accessible on mobile
+    .Island {
+      // Make toolbar items larger for touch
+      .ToolIcon {
+        min-width: 44px;
+        min-height: 44px;
+      }
+    }
+  }
 }
 
 .custom-styles .excalidraw.theme--dark {
@@ -10,4 +25,14 @@
   --color-primary-darker: #d64c7e;
   --color-primary-darkest: #e86e99;
   --color-primary-light: #dcbec9;
+}
+
+// Ensure the whiteboard page takes full space on mobile
+.page.custom-styles {
+  @media (max-width: 768px) {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
 }

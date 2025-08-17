@@ -77,12 +77,13 @@ export default function NotebookPage() {
   const renderedContent = useMemo(() => parseContent(content), [content]);
 
   return (
-    <div className="notebook-container page">
+    <div className="notebook-container">
       <div className="editor-pane">
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           className="editor-textarea"
+          placeholder="Start typing your markdown here..."
         />
       </div>
       <div
