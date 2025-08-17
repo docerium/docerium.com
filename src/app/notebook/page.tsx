@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { useAtom } from "jotai";
 import { notebookAtom } from "@/store";
 import katex from "katex";
@@ -73,6 +73,72 @@ const parseContent = (text: string) => {
 
 export default function NotebookPage() {
   const [content, setContent] = useAtom(notebookAtom);
+
+  useEffect(() => {
+    const html = document.documentElement;
+
+    const apply = (enabled: boolean) => {
+      html.classList.toggle("notebook--preview-only", enabled);
+    };
+
+    // URL param fallback
+    const params = new URLSearchParams(window.location.search);
+    const forced =
+      params.get("preview") === "1" || params.get("stream") === "right";
+    if (forced) apply(true);
+
+    // Experimental Chromium capture detection
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    const docAny = document as any;
+    let cleanup: (() => void) | undefined;
+
+    const setup = async () => {
+      try {
+        // Variant A: document.hasCapture + capturestatechange
+        if (typeof docAny.hasCapture === "boolean") {
+          const updateA = () => {
+            if (!forced) apply(!!docAny.hasCapture);
+          };
+          updateA();
+          docAny.addEventListener?.("capturestatechange", updateA);
+          cleanup = () =>
+            docAny.removeEventListener?.("capturestatechange", updateA);
+          return;
+        }
+
+        // Variant B: document.getCaptureState() + capturestatechange
+        if (typeof docAny.getCaptureState === "function") {
+          const updateB = async () => {
+            try {
+              const state = await docAny.getCaptureState(); // { active, displaySurface? }
+              const isBrowserTab =
+                !!state?.active && state?.displaySurface === "browser";
+              if (!forced) apply(isBrowserTab);
+            } catch {
+              // ignore
+            }
+          };
+          await updateB();
+          const handler = () => {
+            void updateB();
+          };
+          docAny.addEventListener?.("capturestatechange", handler);
+          cleanup = () =>
+            docAny.removeEventListener?.("capturestatechange", handler);
+          return;
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    void setup();
+
+    return () => {
+      cleanup?.();
+      html.classList.remove("notebook--preview-only");
+    };
+  }, []);
 
   const renderedContent = useMemo(() => parseContent(content), [content]);
 
