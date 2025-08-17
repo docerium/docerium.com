@@ -110,3 +110,20 @@
     font-size: 0.8rem;
   }
 }
+
+// Preview-only mode styles
+html.notebook--preview-only {
+  .editor-pane {
+    display: none;
+  }
+
+  .preview-pane {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-left: none !important;
+  }
+
+  .dock-container {
+    display: none;
+  }
+}
