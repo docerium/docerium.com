@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "https://avatars.githubusercontent.com/u/226850329?s=200&v=4",
+    shortcut: "https://avatars.githubusercontent.com/u/226850329?s=200&v=4",
+    apple: "https://avatars.githubusercontent.com/u/226850329?s=200&v=4",
   },
   manifest: "/manifest.json",
   other: {
