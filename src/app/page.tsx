@@ -2,7 +2,7 @@ import { ProjectIcon, StarIcon, ZapIcon } from "@primer/octicons-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Home | Docerium",
   description:
     "Welcome to Docerium - the all-in-one educational platform for interactive teaching and learning.",
 };
@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
         {/* Hero Section */}
-        <section className="h-screen flex items-center justify-center relative snap-start">
+        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center relative snap-start">
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 left-10 text-yellow-300 animate-pulse">
@@ -52,7 +52,7 @@ export default function Home() {
               The ultimate educational toolkit that transforms how you teach,
               learn, and collaborate
             </p>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12 sm:mb-16">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12">
               <span className="px-3 py-2 sm:px-6 sm:py-3 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm sm:text-lg">
                 Interactive Learning
               </span>
@@ -67,13 +67,13 @@ export default function Home() {
         </section>
 
         {/* Why Choose Docerium Section */}
-        <section className="h-screen flex items-center justify-center snap-start bg-gradient-to-br from-gray-800 to-gray-900">
+        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-800 to-gray-900">
           <div className="max-w-6xl mx-auto text-center px-4">
-            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light mb-10 sm:mb-20 text-white">
+            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light mb-5 sm:mb-20 text-white">
               Why Educators Choose Docerium
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-16 mb-16">
               <div className="text-center">
                 <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-8 bg-yellow-400/20 rounded-full flex items-center justify-center">
                   <ZapIcon
@@ -126,8 +126,8 @@ export default function Home() {
         </section>
 
         {/* Use Cases Section */}
-        <section className="h-screen flex items-center justify-center snap-start bg-gradient-to-br from-gray-900 to-gray-800 py-8 sm:py-16">
-          <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center">
+        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-900 to-gray-800 py-8 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 h-full sm:flex sm:flex-col sm:justify-center">
             <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light text-center mb-6 sm:mb-12 lg:mb-20 text-white">
               Perfect For Every Learning Environment
             </h2>
@@ -189,8 +189,8 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <section className="h-screen flex items-center justify-center snap-start bg-gradient-to-br from-gray-800 to-black pb-20 sm:pb-24">
-          <div className="max-w-5xl mx-auto text-center px-4 h-full flex flex-col justify-center">
+        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-800 to-black pb-20 sm:pb-24">
+          <div className="max-w-5xl mx-auto text-center px-4 h-full sm:flex sm:flex-col sm:justify-center">
             <h3 className="text-2xl sm:text-4xl lg:text-6xl font-light mb-4 sm:mb-8 text-white">
               Ready to Transform Your Teaching?
             </h3>
@@ -218,7 +218,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-            <div className="text-gray-500 text-xs sm:text-sm">
+            <div className="text-gray-500 text-xs sm:text-sm mt-70">
               © 2025 Docerium. Open source and free forever.
             </div>
           </div>
