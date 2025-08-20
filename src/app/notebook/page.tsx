@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo, useEffect, useRef } from "react";
 import { useAtom } from "jotai";
 import { notebookAtom } from "@/store";
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import "@/styles/notebook.scss";
+import MathKeyboard from "@/components/MathKeyboard";
 
 const parseContent = (text: string) => {
   const lines = text.split("\n");
@@ -73,6 +74,50 @@ const parseContent = (text: string) => {
 
 export default function NotebookPage() {
   const [content, setContent] = useAtom(notebookAtom);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  console.log("NotebookPage rendered, content length:", content.length); // Debug log
+
+  const handleMathInsert = (mathText: string) => {
+    console.log("Inserting math text:", mathText); // Debug log
+    const textarea = textareaRef.current;
+    if (!textarea) {
+      console.log("No textarea ref found"); // Debug log
+      return;
+    }
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const beforeText = content.substring(0, start);
+    const afterText = content.substring(end);
+
+    let newContent;
+    let cursorPosition;
+
+    if (mathText.includes("\n")) {
+      // For display math with newlines, add proper spacing
+      const needsNewlineBefore =
+        beforeText.length > 0 && !beforeText.endsWith("\n");
+      const prefix = needsNewlineBefore ? "\n" : "";
+      newContent = beforeText + prefix + mathText + "\n" + afterText;
+      cursorPosition = start + prefix.length + mathText.length - 3; // Position inside the $$
+    } else {
+      // For inline math, insert directly
+      newContent = beforeText + mathText + afterText;
+      // Position cursor between the \( and \) for easy editing
+      cursorPosition = start + mathText.length - 2;
+    }
+
+    setContent(newContent);
+
+    // Focus and set cursor position after insertion
+    setTimeout(() => {
+      if (textarea) {
+        textarea.focus();
+        textarea.setSelectionRange(cursorPosition, cursorPosition);
+      }
+    }, 10); // Slightly longer timeout to ensure state update
+  };
 
   useEffect(() => {
     const html = document.documentElement;
@@ -145,12 +190,16 @@ export default function NotebookPage() {
   return (
     <div className="notebook-container">
       <div className="editor-pane">
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="editor-textarea"
-          placeholder="Start typing your markdown here..."
-        />
+        <div className="editor-wrapper">
+          <MathKeyboard onInsert={handleMathInsert} />
+          <textarea
+            ref={textareaRef}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className="editor-textarea"
+            placeholder="Start typing your markdown here..."
+          />
+        </div>
       </div>
       <div
         className="preview-pane"
