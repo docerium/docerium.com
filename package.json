@@ -11,8 +11,10 @@
   "dependencies": {
     "@excalidraw/element": "^0.18.0-f0063e113",
     "@excalidraw/excalidraw": "^0.18.0",
+    "@heroicons/react": "^2.2.0",
     "@mdxeditor/editor": "^3.40.1",
     "@primer/octicons-react": "^19.15.5",
+    "jotai": "^2.13.1",
     "katex": "^0.16.22",
     "mathjs": "^14.6.0",
     "motion": "^12.23.12",
