@@ -14,7 +14,6 @@ interface MathButton {
 }
 
 const mathButtons: MathButton[] = [
-  // Basic operators
   { label: "±", tex: "\\pm", category: "operators" },
   { label: "×", tex: "\\times", category: "operators" },
   { label: "÷", tex: "\\div", category: "operators" },
@@ -24,7 +23,6 @@ const mathButtons: MathButton[] = [
   { label: "≈", tex: "\\approx", category: "operators" },
   { label: "∞", tex: "\\infty", category: "operators" },
 
-  // Fractions and powers
   { label: "x²", tex: "^{2}", category: "powers" },
   { label: "x³", tex: "^{3}", category: "powers" },
   { label: "xⁿ", tex: "^{n}", category: "powers" },
@@ -33,7 +31,6 @@ const mathButtons: MathButton[] = [
   { label: "√", tex: "\\sqrt{}", category: "powers" },
   { label: "ⁿ√", tex: "\\sqrt[n]{}", category: "powers" },
 
-  // Greek letters
   { label: "α", tex: "\\alpha", category: "greek" },
   { label: "β", tex: "\\beta", category: "greek" },
   { label: "γ", tex: "\\gamma", category: "greek" },
@@ -48,41 +45,39 @@ const mathButtons: MathButton[] = [
   { label: "φ", tex: "\\phi", category: "greek" },
   { label: "Ω", tex: "\\Omega", category: "greek" },
 
-  // Functions
-  { label: "sin", tex: "\\sin", category: "functions" },
-  { label: "cos", tex: "\\cos", category: "functions" },
-  { label: "tan", tex: "\\tan", category: "functions" },
-  { label: "log", tex: "\\log", category: "functions" },
-  { label: "ln", tex: "\\ln", category: "functions" },
-  { label: "exp", tex: "\\exp", category: "functions" },
+  { label: "sin", tex: "\\sin{}", category: "functions" },
+  { label: "sin²", tex: "\\sin^2{}", category: "functions" },
+  { label: "cos", tex: "\\cos{}", category: "functions" },
+  { label: "cos²", tex: "\\cos^2{}", category: "functions" },
+  { label: "tan", tex: "\\tan{}", category: "functions" },
+  { label: "tan²", tex: "\\tan^2{}", category: "functions" },
+  { label: "log", tex: "\\log{}", category: "functions" },
+  { label: "ln", tex: "\\ln{}", category: "functions" },
+  { label: "exp", tex: "\\exp{}", category: "functions" },
   { label: "lim", tex: "\\lim_{x \\to }", category: "functions" },
 
-  // Calculus
-  { label: "∫", tex: "\\int", category: "calculus" },
-  { label: "∮", tex: "\\oint", category: "calculus" },
-  { label: "∂", tex: "\\partial", category: "calculus" },
-  { label: "∇", tex: "\\nabla", category: "calculus" },
+  { label: "∫", tex: "\\int{}", category: "calculus" },
+  { label: "∮", tex: "\\oint{}", category: "calculus" },
+  { label: "∂", tex: "\\partial{}", category: "calculus" },
+  { label: "∇", tex: "\\nabla{}", category: "calculus" },
   { label: "d/dx", tex: "\\frac{d}{dx}", category: "calculus" },
 
-  // Sets and logic
-  { label: "∈", tex: "\\in", category: "sets" },
-  { label: "∉", tex: "\\notin", category: "sets" },
-  { label: "⊂", tex: "\\subset", category: "sets" },
-  { label: "⊆", tex: "\\subseteq", category: "sets" },
-  { label: "∪", tex: "\\cup", category: "sets" },
-  { label: "∩", tex: "\\cap", category: "sets" },
-  { label: "∅", tex: "\\emptyset", category: "sets" },
-  { label: "∀", tex: "\\forall", category: "sets" },
-  { label: "∃", tex: "\\exists", category: "sets" },
+  { label: "∈", tex: "\\in{}", category: "sets" },
+  { label: "∉", tex: "\\notin{}", category: "sets" },
+  { label: "⊂", tex: "\\subset{}", category: "sets" },
+  { label: "⊆", tex: "\\subseteq{}", category: "sets" },
+  { label: "∪", tex: "\\cup{}", category: "sets" },
+  { label: "∩", tex: "\\cap{}", category: "sets" },
+  { label: "∅", tex: "\\emptyset{}", category: "sets" },
+  { label: "∀", tex: "\\forall{}", category: "sets" },
+  { label: "∃", tex: "\\exists{}", category: "sets" },
 
-  // Arrows
-  { label: "→", tex: "\\to", category: "arrows" },
-  { label: "←", tex: "\\leftarrow", category: "arrows" },
-  { label: "↔", tex: "\\leftrightarrow", category: "arrows" },
-  { label: "⇒", tex: "\\Rightarrow", category: "arrows" },
-  { label: "⇔", tex: "\\Leftrightarrow", category: "arrows" },
+  { label: "→", tex: "\\to{}", category: "arrows" },
+  { label: "←", tex: "\\leftarrow{}", category: "arrows" },
+  { label: "↔", tex: "\\leftrightarrow{}", category: "arrows" },
+  { label: "⇒", tex: "\\Rightarrow{}", category: "arrows" },
+  { label: "⇔", tex: "\\Leftrightarrow{}", category: "arrows" },
 
-  // Matrix and vectors
   {
     label: "Matrix",
     tex: "\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
@@ -119,21 +114,55 @@ export default function MathKeyboard({
   const [activeCategory, setActiveCategory] = useState("operators");
   const keyboardRef = useRef<HTMLDivElement>(null);
 
-  console.log("MathKeyboard rendered", { isExpanded, activeCategory }); // Debug log
-
   const handleInsert = (tex: string) => {
-    console.log("Math button clicked:", tex); // Debug log
-    if (tex.includes("{}")) {
-      // For functions with placeholders, position cursor inside braces
-      const beforeBrace = tex.substring(0, tex.indexOf("{}"));
-      const afterBrace = tex.substring(tex.indexOf("{}") + 2);
-      onInsert(`\\(${beforeBrace}${afterBrace}\\)`);
+    const simpleSymbols = [
+      "\\pm",
+      "\\times",
+      "\\div",
+      "\\neq",
+      "\\leq",
+      "\\geq",
+      "\\approx",
+      "\\infty",
+      "\\alpha",
+      "\\beta",
+      "\\gamma",
+      "\\delta",
+      "\\epsilon",
+      "\\theta",
+      "\\lambda",
+      "\\mu",
+      "\\pi",
+      "\\sigma",
+      "\\tau",
+      "\\phi",
+      "\\Omega",
+      "\\in",
+      "\\notin",
+      "\\subset",
+      "\\subseteq",
+      "\\cup",
+      "\\cap",
+      "\\emptyset",
+      "\\forall",
+      "\\exists",
+      "\\to",
+      "\\leftarrow",
+      "\\leftrightarrow",
+      "\\Rightarrow",
+      "\\Leftrightarrow",
+      "\\partial",
+      "\\nabla",
+    ];
+
+    const isSimpleSymbol = simpleSymbols.includes(tex);
+
+    if (tex.includes("{}") && !isSimpleSymbol) {
+      onInsert(`CURSOR_INSIDE:${tex}`);
     } else if (tex.includes("\\begin{")) {
-      // For matrices and complex structures, use display math
       onInsert(`$$\n${tex}\n$$`);
     } else {
-      // For simple symbols, insert inline math
-      onInsert(`\\(${tex}\\)`);
+      onInsert(`CURSOR_END:${tex}`);
     }
   };
 
@@ -181,7 +210,16 @@ export default function MathKeyboard({
               <button
                 key={`${button.category}-${index}`}
                 className="math-button"
-                onClick={() => handleInsert(button.tex)}
+                onClick={() => {
+                  console.log(
+                    "Button clicked:",
+                    button.label,
+                    "tex:",
+                    button.tex
+                  ); // Debug log
+                  handleInsert(button.tex);
+                  setIsExpanded(false);
+                }}
                 title={`Insert ${button.tex}`}
               >
                 {button.label}

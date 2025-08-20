@@ -76,13 +76,9 @@ export default function NotebookPage() {
   const [content, setContent] = useAtom(notebookAtom);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  console.log("NotebookPage rendered, content length:", content.length); // Debug log
-
   const handleMathInsert = (mathText: string) => {
-    console.log("Inserting math text:", mathText); // Debug log
     const textarea = textareaRef.current;
     if (!textarea) {
-      console.log("No textarea ref found"); // Debug log
       return;
     }
 
@@ -91,10 +87,98 @@ export default function NotebookPage() {
     const beforeText = content.substring(0, start);
     const afterText = content.substring(end);
 
+    // Check if cursor is inside existing math delimiters
+    const isInsideInlineMath = () => {
+      const beforeCursor = beforeText;
+      const afterCursor = afterText;
+
+      // Find the last \( before cursor and first \) after cursor
+      const lastInlineStart = beforeCursor.lastIndexOf("\\(");
+      const lastInlineEnd = beforeCursor.lastIndexOf("\\)");
+      const nextInlineEnd = afterCursor.indexOf("\\)");
+
+      // Check if we're inside inline math: last \( is after last \), and there's a \) ahead
+      return lastInlineStart > lastInlineEnd && nextInlineEnd !== -1;
+    };
+
+    const isInsideDisplayMath = () => {
+      const beforeCursor = beforeText;
+      const afterCursor = afterText;
+
+      // Count $$ before and after cursor
+      const beforeMatches = (beforeCursor.match(/\$\$/g) || []).length;
+      const afterMatches = (afterCursor.match(/\$\$/g) || []).length;
+
+      // If odd number of $$ before cursor and at least one after, we're inside display math
+      return beforeMatches % 2 === 1 && afterMatches > 0;
+    };
+
+    const insideInline = isInsideInlineMath();
+    const insideDisplay = isInsideDisplayMath();
+
     let newContent;
     let cursorPosition;
 
-    if (mathText.includes("\n")) {
+    if (mathText.startsWith("CURSOR_INSIDE:")) {
+      const tex = mathText.replace("CURSOR_INSIDE:", "");
+
+      if (tex.includes("{}")) {
+        let fullText;
+
+        if (insideInline || insideDisplay) {
+          // Already inside math, just insert the function
+          fullText = tex.replace("{}", "");
+        } else {
+          // Not inside math, wrap with inline delimiters
+          const withPlaceholder = tex.replace("{}", "{CURSOR_HERE}");
+          fullText = `\\(${withPlaceholder}\\)`;
+        }
+
+        newContent = beforeText + fullText + afterText;
+
+        if (insideInline || insideDisplay) {
+          // Position cursor at the end of the function
+          cursorPosition = start + fullText.length;
+        } else {
+          // Find the cursor position inside the braces
+          const insertedTextBeforeCursor =
+            beforeText + fullText.substring(0, fullText.indexOf("CURSOR_HERE"));
+          cursorPosition = insertedTextBeforeCursor.length;
+          // Remove the placeholder
+          newContent = newContent.replace("CURSOR_HERE", "");
+        }
+      } else {
+        // Fallback for functions without {}
+        let fullText;
+
+        if (insideInline || insideDisplay) {
+          fullText = tex;
+        } else {
+          fullText = `\\(${tex}\\)`;
+        }
+
+        newContent = beforeText + fullText + afterText;
+        cursorPosition = start + fullText.length;
+      }
+    } else if (mathText.startsWith("CURSOR_END:")) {
+      const tex = mathText.replace("CURSOR_END:", "");
+
+      let fullText;
+
+      if (insideInline || insideDisplay) {
+        // Already inside math, just insert the symbol with a space
+        fullText = tex + " ";
+        newContent = beforeText + fullText + afterText;
+        // Position cursor after the space, still inside math
+        cursorPosition = start + fullText.length;
+      } else {
+        // Not inside math, wrap with inline delimiters and add space OUTSIDE
+        fullText = `\\(${tex}\\) `;
+        newContent = beforeText + fullText + afterText;
+        // Position cursor AFTER the space (after the closing bracket and space)
+        cursorPosition = start + fullText.length;
+      }
+    } else if (mathText.includes("\n")) {
       // For display math with newlines, add proper spacing
       const needsNewlineBefore =
         beforeText.length > 0 && !beforeText.endsWith("\n");
@@ -102,10 +186,25 @@ export default function NotebookPage() {
       newContent = beforeText + prefix + mathText + "\n" + afterText;
       cursorPosition = start + prefix.length + mathText.length - 3; // Position inside the $$
     } else {
-      // For inline math, insert directly
-      newContent = beforeText + mathText + afterText;
-      // Position cursor between the \( and \) for easy editing
-      cursorPosition = start + mathText.length - 2;
+      // For simple symbols, check if we need delimiters
+      let fullText;
+
+      if (insideInline || insideDisplay) {
+        // Already inside math, just insert the symbol
+        fullText = mathText.replace("\\(", "").replace("\\)", "");
+      } else {
+        // Not inside math, use the provided delimiters
+        fullText = mathText;
+      }
+
+      newContent = beforeText + fullText + afterText;
+
+      if (insideInline || insideDisplay) {
+        cursorPosition = start + fullText.length;
+      } else {
+        // Position cursor between the \( and \) for easy editing
+        cursorPosition = start + fullText.length - 2;
+      }
     }
 
     setContent(newContent);
