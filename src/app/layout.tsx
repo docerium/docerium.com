@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.scss";
 import "../styles/app.scss";
 import "../styles/tailwind.css";
-import DockElement from "../components/DockElement";
+import DockWrapper from "@/components/DockWrapper";
 import GitHubStars from "../components/GitHubStars";
 import MainWrapper from "../components/MainWrapper";
 
@@ -107,8 +107,8 @@ export default function RootLayout({
       </head>
       <body className="bg-gray-900 overflow-x-hidden">
         <MainWrapper>{children}</MainWrapper>
-        <DockElement />
         <GitHubStars />
+        <DockWrapper />
       </body>
     </html>
   );

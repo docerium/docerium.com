@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DockWrapper from "@/components/DockWrapper";
 
 export const metadata: Metadata = {
   title: "Interactive Whiteboard",
@@ -11,5 +12,12 @@ export default function WhiteboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <div className="DockWrapper">
+        <DockWrapper />
+      </div>
+    </>
+  );
 }
