@@ -1,238 +1,367 @@
-import { ProjectIcon, StarIcon, ZapIcon } from "@primer/octicons-react";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Home | Docerium",
-  description:
-    "Welcome to Docerium - the all-in-one educational platform for interactive teaching and learning.",
-};
+import { MarkGithubIcon } from "@primer/octicons-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-        {/* Hero Section */}
-        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center relative snap-start">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-10 text-yellow-300 animate-pulse">
-              ✦
-            </div>
-            <div
-              className="absolute top-32 right-20 text-blue-300 animate-pulse"
-              style={{ animationDelay: "1s" }}
-            >
-              ✧
-            </div>
-            <div
-              className="absolute top-40 left-1/4 text-purple-300 animate-pulse"
-              style={{ animationDelay: "2s" }}
-            >
-              ✦
-            </div>
-            <div
-              className="absolute bottom-40 left-16 text-pink-300 animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            >
-              ✧
-            </div>
-            <div
-              className="absolute bottom-32 right-16 text-cyan-300 animate-pulse"
-              style={{ animationDelay: "1.5s" }}
-            >
-              ✦
-            </div>
-          </div>
-
-          <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
-            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-light mb-6 sm:mb-8 text-white tracking-wide">
-              Docerium
-            </h1>
-            <p className="text-lg sm:text-2xl lg:text-3xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-              The ultimate educational toolkit that transforms how you teach,
-              learn, and collaborate
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-12">
-              <span className="px-3 py-2 sm:px-6 sm:py-3 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm sm:text-lg">
-                Interactive Learning
-              </span>
-              <span className="px-3 py-2 sm:px-6 sm:py-3 bg-purple-500/20 border border-purple-400/30 rounded-full text-purple-300 text-sm sm:text-lg">
-                Real-time Collaboration
-              </span>
-              <span className="px-3 py-2 sm:px-6 sm:py-3 bg-green-500/20 border border-green-400/30 rounded-full text-green-300 text-sm sm:text-lg">
-                Mathematical Excellence
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Docerium Section */}
-        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-800 to-gray-900">
-          <div className="max-w-6xl mx-auto text-center px-4">
-            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light mb-5 sm:mb-20 text-white">
-              Why Educators Choose Docerium
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-16 mb-16">
-              <div className="text-center">
-                <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-8 bg-yellow-400/20 rounded-full flex items-center justify-center">
-                  <ZapIcon
-                    size={32}
-                    className="sm:w-12 sm:h-12 text-yellow-400"
-                  />
-                </div>
-                <h3 className="text-lg sm:text-2xl font-semibold mb-3 sm:mb-6 text-white">
-                  Lightning Fast
-                </h3>
-                <p className="text-gray-400 text-sm sm:text-lg leading-relaxed">
-                  No installation required. Access all tools instantly through
-                  your web browser with blazing-fast performance.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-8 bg-blue-400/20 rounded-full flex items-center justify-center">
-                  <StarIcon
-                    size={32}
-                    className="sm:w-12 sm:h-12 text-blue-400"
-                  />
-                </div>
-                <h3 className="text-lg sm:text-2xl font-semibold mb-3 sm:mb-6 text-white">
-                  Always Free
-                </h3>
-                <p className="text-gray-400 text-sm sm:text-lg leading-relaxed">
-                  Built for the education community. All features are completely
-                  free and always will be.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-8 bg-purple-400/20 rounded-full flex items-center justify-center">
-                  <ProjectIcon
-                    size={32}
-                    className="sm:w-12 sm:h-12 text-purple-400"
-                  />
-                </div>
-                <h3 className="text-lg sm:text-2xl font-semibold mb-3 sm:mb-6 text-white">
-                  Open Source
-                </h3>
-                <p className="text-gray-400 text-sm sm:text-lg leading-relaxed">
-                  Transparent, secure, and community-driven. Contribute to the
-                  future of educational technology.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Use Cases Section */}
-        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-900 to-gray-800 py-8 sm:py-16">
-          <div className="max-w-7xl mx-auto px-4 h-full sm:flex sm:flex-col sm:justify-center">
-            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-light text-center mb-6 sm:mb-12 lg:mb-20 text-white">
-              Perfect For Every Learning Environment
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-h-[60vh] overflow-hidden">
-              <div className="p-3 sm:p-6 lg:p-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700/50 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-400/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6">
-                  <span className="text-base sm:text-xl lg:text-2xl">🏫</span>
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-blue-400">
-                  Classrooms
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                  Interactive lessons, real-time problem solving, and
-                  collaborative learning experiences.
-                </p>
-              </div>
-
-              <div className="p-3 sm:p-6 lg:p-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700/50 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-purple-400/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6">
-                  <span className="text-base sm:text-xl lg:text-2xl">💻</span>
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-purple-400">
-                  Remote Learning
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                  Maintain engagement and interactivity in virtual classrooms
-                  and online courses.
-                </p>
-              </div>
-
-              <div className="p-3 sm:p-6 lg:p-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700/50 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-400/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6">
-                  <span className="text-base sm:text-xl lg:text-2xl">🔬</span>
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-green-400">
-                  Research
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                  Document findings, create mathematical proofs, and visualize
-                  complex data.
-                </p>
-              </div>
-
-              <div className="hidden p-3 md:block sm:p-6 lg:p-8 bg-gray-800/50 rounded-xl sm:rounded-2xl border border-gray-700/50 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-yellow-400/20 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6">
-                  <span className="text-base sm:text-xl lg:text-2xl">📚</span>
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-yellow-400">
-                  Personal Study
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm lg:text-base leading-relaxed">
-                  Take notes, solve problems, and explore mathematical concepts
-                  at your own pace.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <section className="h-screen pt-16 sm:flex sm:items-center sm:justify-center snap-start bg-gradient-to-br from-gray-800 to-black pb-20 sm:pb-24">
-          <div className="max-w-5xl mx-auto text-center px-4 h-full sm:flex sm:flex-col sm:justify-center">
-            <h3 className="text-2xl sm:text-4xl lg:text-6xl font-light mb-4 sm:mb-8 text-white">
-              Ready to Transform Your Teaching?
-            </h3>
-            <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-16 max-w-3xl mx-auto leading-relaxed">
-              Join educators worldwide who are already using Docerium to create
-              more engaging and interactive learning experiences.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
-              <div className="flex items-center justify-center space-x-2 sm:space-x-3">
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"></span>
-                <span className="text-gray-300 text-sm sm:text-lg">
-                  No registration required
-                </span>
-              </div>
-              <div className="flex items-center justify-center space-x-2 sm:space-x-3">
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-400 rounded-full"></span>
-                <span className="text-gray-300 text-sm sm:text-lg">
-                  Works on all devices
-                </span>
-              </div>
-              <div className="flex items-center justify-center space-x-2 sm:space-x-3">
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full"></span>
-                <span className="text-gray-300 text-sm sm:text-lg">
-                  Always up-to-date
-                </span>
-              </div>
-            </div>
-            <div className="text-gray-500 text-xs sm:text-sm mt-70">
-              © 2025 Docerium. Open source and free forever.
-            </div>
-          </div>
-        </section>
+    <div className="min-h-screen bg-[#0a0a0f] overflow-x-hidden">
+      {/* Animated gradient background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[150px] animate-pulse" />
+        <div
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[150px] animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600/10 rounded-full blur-[200px] animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
       </div>
 
-      {/* Fixed Call to Action above dock */}
-      <div className="fixed bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex items-center justify-center h-14 sm:h-17 px-4 bg-black/30 backdrop-blur-md border border-gray-700/50 rounded-2xl shadow-2xl transition-all duration-300">
-          <span className="text-white text-xs sm:text-sm font-medium">
-            👇 Click any button on the dock below to start
-          </span>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24">
+        {/* Floating elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[20%] left-[10%] text-6xl opacity-20 animate-bounce">
+            ∫
+          </div>
+          <div
+            className="absolute top-[30%] right-[15%] text-5xl opacity-20 animate-pulse"
+            style={{ animationDelay: "1s" }}
+          >
+            π
+          </div>
+          <div
+            className="absolute bottom-[30%] left-[20%] text-4xl opacity-20 animate-bounce"
+            style={{ animationDelay: "2s" }}
+          >
+            Σ
+          </div>
+          <div
+            className="absolute bottom-[25%] right-[10%] text-5xl opacity-20 animate-pulse"
+            style={{ animationDelay: "0.5s" }}
+          >
+            √
+          </div>
+          <div
+            className="absolute top-[15%] left-[40%] text-3xl opacity-15 animate-bounce"
+            style={{ animationDelay: "1.5s" }}
+          >
+            ∞
+          </div>
+          <div
+            className="absolute bottom-[40%] right-[30%] text-4xl opacity-15 animate-pulse"
+            style={{ animationDelay: "2.5s" }}
+          >
+            Δ
+          </div>
         </div>
-      </div>
-    </>
+
+        <div className="relative z-10 text-center max-w-5xl mx-auto">
+          {/* Logo/Brand */}
+          <div className="mb-8">
+            <span className="inline-block px-4 py-2 text-sm font-medium text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-full backdrop-blur-sm">
+              ✨ Free & Open Source
+            </span>
+          </div>
+
+          {/* Main headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
+              Teaching Made
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+              Beautiful
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+            Whiteboards, graphs, and notebooks — all in one elegant platform
+            designed for educators who care about presentation.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Link
+              href="/whiteboard"
+              className="group relative px-8 py-4 bg-white text-gray-900 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+            >
+              <span className="relative z-10">Start Creating</span>
+            </Link>
+            <a
+              href="https://github.com/docerium/docerium.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-8 py-4 text-white/80 hover:text-white font-medium rounded-2xl border border-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300"
+            >
+              <MarkGithubIcon size={20} />
+              <span>View Source</span>
+            </a>
+          </div>
+
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span>No signup required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+              <span>Works offline</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+              <span>Privacy-first</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+        </div>
+      </section>
+
+      {/* Tools Section */}
+      <section className="relative py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Section header */}
+          <div className="text-center mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Three tools, infinite possibilities
+            </h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              Everything you need to create engaging educational content
+            </p>
+          </div>
+
+          {/* Tool cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Whiteboard */}
+            <Link
+              href="/whiteboard"
+              className="group relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/10 hover:border-purple-500/30 transition-all duration-500 hover:scale-[1.02] overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-purple-500/20 text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  ✏️
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3">
+                  Whiteboard
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  An infinite canvas for freehand drawing, diagrams, and visual
+                  explanations. Powered by Excalidraw.
+                </p>
+                <span className="inline-flex items-center gap-2 text-purple-400 font-medium group-hover:gap-3 transition-all">
+                  Open Whiteboard
+                  <span className="text-lg">→</span>
+                </span>
+              </div>
+            </Link>
+
+            {/* Graphs */}
+            <Link
+              href="/graphs"
+              className="group relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/10 hover:border-blue-500/30 transition-all duration-500 hover:scale-[1.02] overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-500/20 text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  📊
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3">
+                  Graphs
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  Plot mathematical functions with real-time rendering. Perfect
+                  for teaching calculus, algebra, and more.
+                </p>
+                <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:gap-3 transition-all">
+                  Open Graphs
+                  <span className="text-lg">→</span>
+                </span>
+              </div>
+            </Link>
+
+            {/* Notebook */}
+            <Link
+              href="/notebook"
+              className="group relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/10 hover:border-orange-500/30 transition-all duration-500 hover:scale-[1.02] overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-orange-500/20 text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  📝
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3">
+                  Notebook
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  Rich text editing with full LaTeX support. Write beautiful
+                  notes, equations, and documentation.
+                </p>
+                <span className="inline-flex items-center gap-2 text-orange-400 font-medium group-hover:gap-3 transition-all">
+                  Open Notebook
+                  <span className="text-lg">→</span>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="relative py-32 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Why educators love Docerium
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Feature 1 */}
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+              <div className="text-3xl mb-4">⚡</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Instant Access
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                No downloads, no installations, no accounts. Just open your
+                browser and start teaching.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+              <div className="text-3xl mb-4">🔒</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Your Data, Your Device
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                Everything stays in your browser. No servers, no tracking, no
+                data collection. Ever.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+              <div className="text-3xl mb-4">🎨</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Beautifully Designed
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                Clean, modern interfaces that make your content shine. Teaching
+                should look as good as it feels.
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+              <div className="text-3xl mb-4">💻</div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Works Everywhere
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                Desktop, tablet, or phone — Docerium adapts seamlessly to any
+                screen size.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social proof / Use cases */}
+      <section className="relative py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-gray-500 text-sm uppercase tracking-widest mb-8">
+            Perfect for
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              "Math Teachers",
+              "University Professors",
+              "Online Tutors",
+              "Science Educators",
+              "Homeschooling",
+              "Study Groups",
+              "Research",
+              "Presentations",
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-5 py-2.5 text-sm text-gray-300 bg-white/5 rounded-full border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all cursor-default"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative py-32 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8">
+            Start teaching
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+              beautifully
+            </span>
+          </h2>
+          <p className="text-xl text-gray-400 mb-12 font-light">
+            Choose a tool from the dock below to get started.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative py-12 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Docerium
+              </span>
+              <span className="text-gray-600">·</span>
+              <span className="text-gray-500 text-sm">MIT License</span>
+            </div>
+
+            <div className="flex items-center gap-6 text-sm text-gray-500">
+              <a
+                href="https://github.com/docerium/docerium.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://github.com/docerium/docerium.com/blob/master/CONTRIBUTING.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Contribute
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-600 text-sm">
+              Made with care for educators everywhere
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Spacer for dock */}
+      <div className="h-24" />
+    </div>
   );
 }
