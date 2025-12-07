@@ -1,7 +1,12 @@
 "use client";
 
 import Dock from "./Dock";
-import { ProjectIcon, GraphIcon, FileIcon } from "@primer/octicons-react";
+import {
+  ProjectIcon,
+  GraphIcon,
+  FileIcon,
+  BeakerIcon,
+} from "@primer/octicons-react";
 
 const items = [
   {
@@ -18,6 +23,11 @@ const items = [
     icon: <FileIcon size={18} />,
     label: "Notebook",
     onClick: () => (window.location.href = "/notebook"),
+  },
+  {
+    icon: <BeakerIcon size={18} />,
+    label: "Equation Solver",
+    onClick: () => (window.location.href = "/equation-solver"),
   },
 ];
 

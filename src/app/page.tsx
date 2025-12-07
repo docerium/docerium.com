@@ -73,7 +73,7 @@ export default function Home() {
             </span>
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-              Beautiful
+              Easier
             </span>
           </h1>
 
@@ -110,7 +110,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-              <span>Works offline</span>
+              <span>Free Forever</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
@@ -131,7 +131,7 @@ export default function Home() {
           {/* Section header */}
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-              Three tools, infinite possibilities
+              Four tools, infinite possibilities
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
               Everything you need to create engaging educational content
@@ -139,7 +139,7 @@ export default function Home() {
           </div>
 
           {/* Tool cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Whiteboard */}
             <Link
               href="/whiteboard"
@@ -207,6 +207,30 @@ export default function Home() {
                 </p>
                 <span className="inline-flex items-center gap-2 text-orange-400 font-medium group-hover:gap-3 transition-all">
                   Open Notebook
+                  <span className="text-lg">→</span>
+                </span>
+              </div>
+            </Link>
+
+            {/* Equation Solver */}
+            <Link
+              href="/equation-solver"
+              className="group relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-teal-500/10 to-teal-500/5 border border-teal-500/10 hover:border-teal-500/30 transition-all duration-500 hover:scale-[1.02] overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-teal-500/20 text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  🧮
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3">
+                  Equation Solver
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  Solve equations and factorize expressions with LaTeX input.
+                  Perfect for algebra and calculus problems.
+                </p>
+                <span className="inline-flex items-center gap-2 text-teal-400 font-medium group-hover:gap-3 transition-all">
+                  Open Solver
                   <span className="text-lg">→</span>
                 </span>
               </div>
@@ -311,7 +335,7 @@ export default function Home() {
             Start teaching
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-              beautifully
+              Easier Today
             </span>
           </h2>
           <p className="text-xl text-gray-400 mb-12 font-light">
